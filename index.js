@@ -7,7 +7,7 @@ const ratings = {
   philips: 4.1,
 };
 
-// Nombre total d'étoiles qu'une television peut avoir
+// Nombre total d'étoiles
 const starsTotal = 5;
 
 // Lancer la fonction getRatings quand le DOM est chargé
@@ -18,7 +18,6 @@ const productSelect = document.getElementById("product-select");
 const ratingControl = document.getElementById("rating-control");
 
 // J'initilise ma let product qui correspondra à la clés <=> télévision sélectionée dans
-// le premier formulaire
 let product;
 
 // Cette fonction me renvoie la télévision sélectionée dans ma let product.
@@ -51,26 +50,17 @@ ratingControl.addEventListener("keypress", (e) => {
 
 // Récupération des notes
 function getRatings() {
-  // Je boucle sur l'objet ratings
   for (let rating in ratings) {
-    // console.log(ratings); me renvoie les clés de l'objet ratings
-    // console.log(ratings[rating]); me renvoie les valeurs de l'objet ratings
 
     // Récupération du pourcentage
     const starPercentage = (ratings[rating] / starsTotal) * 100;
-    // console.log(starPercentage);
 
     // Arrondir à la dizaine la plus proche.
     const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
     console.log(starPercentageRounded)
 
-    // Définir la largeur des étoiles intérieures en pourcentage. Pour cela, récupérer les class de chaque téléviseur et cibler les "stars-inner" (intérieur des étoiles)  pour les remplir avec ma const "starPercentageRounded".
-    // En params je récuprère la class de chaque téléviseur grâce à ma let
-    // rating = les clés de l'objet ratings.
-    // Enfin j'indique à quelle % je veux que la largeur de mon élement "star-inner" soit remplis.
-    // "star-inner" est une class dans laquelle j'ai inséré des étoile directement via mon css et sa largeur est définie
-    // par le % de starPercentageRounded. Le % restant est rempli par "star-outer"
-    document.querySelector(`.${rating} .stars-inner`).style.width =
+    // Définir la largeur des étoiles intérieures en pourcentage.
+      document.querySelector(`.${rating} .stars-inner`).style.width =
       starPercentageRounded;
 
     //  Ajouter une nouvelle note écrite
