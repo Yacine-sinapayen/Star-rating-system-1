@@ -57,11 +57,13 @@ function getRatings() {
 
     // Arrondir à la dizaine la plus proche.
     const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-    console.log(starPercentageRounded)
+    // console.log(starPercentageRounded)
 
     // Définir la largeur des étoiles intérieures en pourcentage.
+    // ici rating correspond aux noms des téléviseurs
       document.querySelector(`.${rating} .stars-inner`).style.width =
       starPercentageRounded;
+      console.log(rating)
 
     //  Ajouter une nouvelle note écrite
     document.querySelector(`.${rating} .number-rating`).innerHTML =
