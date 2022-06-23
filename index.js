@@ -37,7 +37,7 @@ ratingControl.addEventListener("keypress", (e) => {
 
   //   Make sur 5 or under
   if (rating > 5) {
-    alert("Veuillez saisir une note 1 et 5");
+    alert("Please enter a score between 1 and 5");
     return;
   }
 
